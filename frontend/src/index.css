@@ -1,0 +1,417 @@
+/* https://font.download/font/samsungone */
+@font-face {
+  font-family: SamsungFont;
+  src: url(/fonts/SamsungOne-400.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* https://font.download/font/samsungone */
+@font-face {
+  font-family: SamsungFont;
+  src: url(/fonts/SamsungOne-700.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  /* for a loong time I couldn't find out why the page appeared to be 'shaking' upon filters changes, turns out the reason was the scrollbar dissapearing for a few ms */
+  /* the more I know! */
+  overflow-y: scroll;
+}
+
+body {
+  font-family: SamsungFont, Arial, Helvetica, sans-serif;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.root-container {
+  margin: 0 auto;
+  max-width: 144rem;
+}
+
+.heading-main-container {
+  height: 5.6rem;
+  padding: 0.4rem 0 8rem 0;
+}
+
+.heading-main {
+  font-size: 4rem;
+}
+
+.input-searchProduct-box {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.input-searchProduct {
+  width: 25rem;
+  height: 3.6rem;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  background-color: #ffffff;
+}
+
+.input-searchProduct::placeholder {
+  color: #000000;
+}
+
+.filters-categories-wrapper {
+  display: grid;
+  gap: 1.4rem;
+  margin-top: 2.4rem;
+  margin-bottom: 1.2rem;
+  padding: 0 20.5rem;
+}
+
+.filters-categories-box {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 1.8rem;
+}
+
+.filter-category-box {
+  width: 100%;
+  display: grid;
+  gap: 1.8rem;
+}
+
+.filter-category-paragraph {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.filter-selectedFilters-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-selectedFilter-paragraph {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+}
+
+.filter-selectedFilters-box span {
+  height: 0.8rem;
+  width: 0.8rem;
+}
+
+.filter-category-list {
+  position: absolute;
+  top: 125%;
+  left: 0;
+  width: 100%;
+  font-size: 1.2rem;
+  list-style: none;
+  background-color: #ffffff;
+}
+
+.filter-category-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding: 1.2rem 1.6rem;
+  cursor: pointer;
+}
+
+.filter-category-list-item.selected,
+.filter-category-list-item.selected:hover {
+  background-color: #1428a0;
+  color: #ffffff;
+}
+
+.products-section {
+  padding-top: 2.4rem;
+  padding-bottom: 4.8rem;
+  background-color: #f8f8f8;
+}
+
+.products-totalAmount {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  padding: 0 20.8rem;
+  font-size: 1.4rem;
+}
+
+.products-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.6rem;
+  margin: 0 auto;
+  padding: 0 19.7rem;
+  background-color: #f8f8f8;
+}
+
+.product-data-wrapper {
+  display: grid;
+  gap: 1rem;
+  max-width: 33.8rem;
+  max-height: 60.3rem;
+  padding: 2.5rem 2.4rem;
+  background-color: #fff;
+  border-radius: 2rem;
+}
+
+.product-box {
+  display: grid;
+  max-width: 29rem;
+  max-height: 55.3rem;
+  gap: 1.6rem;
+}
+
+.product-image {
+  align-self: center;
+  justify-self: center;
+  margin-top: 1.6rem;
+
+  /* page seemed to flicker upon frequent filter changes, the issue was that the image sometimes loaded a few ms too late and below styles fix this flickering */
+  width: 18rem;
+  height: 18rem;
+  object-fit: contain;
+}
+
+.product-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  font-weight: 700;
+}
+
+.product-specs-box {
+  line-height: 1.8rem;
+}
+
+.product-specs-box span {
+  font-weight: 700;
+  color: #000000;
+}
+
+.product-specs-functions {
+  height: 3.6rem;
+}
+
+.product-specs-energyClass {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.product-specs-energyClass-label {
+  min-width: 4.9rem;
+  min-height: 1.8rem;
+  padding-top: 0.2rem;
+  padding-left: 0.6rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  border-radius: 1px;
+  user-select: none;
+  /* ^ https://bennettfeely.com/clippy/ helped me a lot (CSS polygon generator) */
+  clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+}
+
+.product-specs-energyClass-paragraph {
+  letter-spacing: 0%;
+}
+
+.energyClass-a {
+  background-color: #009949;
+}
+
+.energyClass-b {
+  background-color: #57b947;
+}
+
+.energyClass-c {
+  background-color: #a5d027;
+}
+
+.energyClass-d {
+  background-color: #ffdf00;
+}
+
+.energyClass-e {
+  background-color: #f5b200;
+}
+
+.energyClass-f {
+  background-color: #ef8200;
+}
+
+.product-price-box {
+  display: flex;
+  gap: 0.2rem;
+  font-weight: 700;
+}
+
+.product-price-main-firstLetter,
+.product-price-main-restLetters {
+  font-size: 4rem;
+}
+
+.product-price-main-firstLetter {
+  margin-right: 0.4rem;
+}
+
+.product-price-decimal {
+  align-self: flex-start;
+  padding-top: 1.2rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  letter-spacing: 0px;
+  text-align: right;
+}
+
+.product-paragraph-gray {
+  font-size: 1.2rem;
+  color: #767676;
+}
+
+.product-paragraph-darkGray {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  font-weight: 700;
+  color: #555;
+}
+
+.product-button {
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  gap: 1rem;
+  width: 70%;
+  margin-top: 1rem;
+  padding: 1.1rem 4rem;
+  border: none;
+  border-radius: 2.4rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #1428a0;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.product-button.selected {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.product-button:hover,
+.product-button.selected:hover {
+  opacity: 0.85;
+}
+
+.products-showMore {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 4.8rem auto;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #007aff;
+  cursor: pointer;
+}
+
+.polygon-up {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: #8d8d8d;
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.polygon-down {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: #8d8d8d;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%, 0% 00%);
+}
+
+.polygon-gray {
+  background-color: #8d8d8d;
+}
+
+.polygon-showMore {
+  width: 0.7rem;
+  height: 0.7rem;
+  background-color: #007aff;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 8.5px;
+  }
+}
+
+@media (max-width: 62em) {
+  .products-wrapper {
+    padding: 0 3.2rem;
+  }
+
+  .filters-categories-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    justify-content: center;
+    gap: 1.8rem;
+  }
+
+  .filters-categories-wrapper,
+  .products-totalAmount {
+    padding: 0 3.8rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .products-wrapper {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  .filters-categories-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    justify-content: center;
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .products-wrapper {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
