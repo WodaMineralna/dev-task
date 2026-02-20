@@ -125,8 +125,8 @@ app.get("/api/products", async (req, res) => {
   function getSpecValue(specArray, searchValue) {
     // console.log(specArray) // DEBUG
     const lookFor = {
-      capacity: "Pojemność bębna (pranie)",
-      dimensions: "Parametry fizyczne",
+      capacity: ["Pojemność bębna (pranie)"],
+      dimensions: ["Parametry fizyczne", "Wymiary"],
     };
 
     let result = "";
@@ -136,7 +136,9 @@ app.get("/api/products", async (req, res) => {
       if (
         obj["displayType"] == "Spec" &&
         obj["key"] &&
-        obj["key"].includes(lookFor[searchValue])
+        lookFor[searchValue]?.some((valueToFind) =>
+          obj["key"].includes(valueToFind),
+        )
       ) {
         // console.log(`Found '${searchValue}' for ${JSON.stringify(obj, null, 2)}`) // DEBUG
 
@@ -155,10 +157,12 @@ app.get("/api/products", async (req, res) => {
     // console.log(dimensions); // DEBUGGING
 
     const displayDimensions = dimensions
-      .replace("mm", "cm")
+      .replace("mm", "")
+      .trim("")
       .split(" ")
       .map((arrayEl) => (!isNaN(arrayEl) ? arrayEl / 10 : arrayEl))
-      .join(" ");
+      .join(" ")
+      .concat(" cm");
     return displayDimensions;
   }
 

@@ -91,7 +91,7 @@ export default function ProductsBox() {
         <button className="products-showMore" onClick={handleShowMore}>
           {isLoading ? "Ładowanie..." : "Pokaż więcej"}
           <span
-            className={`polygon-showMore ${isLoading ? "polygon-down" : "polygon-up"}`}
+            className={`polygon-showMore ${isLoading ? "polygon-up" : "polygon-down"}`}
           ></span>
         </button>
       )}
