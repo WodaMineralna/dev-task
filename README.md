@@ -24,7 +24,7 @@ Open two terminals
 
 ```bash
 cd backend
-npm start
+npm run dev
 ```
 
 **Frontend**
